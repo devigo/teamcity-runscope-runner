@@ -31,7 +31,7 @@ class RunscopeRunTypePropertiesProcessor implements PropertiesProcessor {
 
         if(!PropertiesUtil.isEmptyOrNull(variables)) {
             final Matcher matcher = RunscopeConstants.SETTINGS_VARIABLES_PARSER.matcher(variables);
-            if(!matcher.matches()) result.add(new InvalidProperty(RunscopeConstants.SETTINGS_VARIABLES, "Specified value is not valid"));
+            if(!matcher.lookingAt()) result.add(new InvalidProperty(RunscopeConstants.SETTINGS_VARIABLES, "Specified value is not valid"));
         }
 
         if(!parallelRunner && PropertiesUtil.isEmptyOrNull(bucket)) {
